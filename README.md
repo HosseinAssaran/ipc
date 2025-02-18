@@ -23,18 +23,26 @@ This project demonstrates various types of inter-process communication (IPC) mec
 │   ├── CMakeLists.txt
 │   ├── sender.cpp
 │   └── receiver.cpp
+├── ipc-message-posix
+│   ├── CMakeLists.txt
+│   ├── sender.cpp
+│   └── receiver.cpp
 ├── ipc-pipe
 │   ├── CMakeLists.txt
 │   └── pipe.cpp
-├── ipc-semaphore-shared-memory
-│   ├── CMakeLists.txt
-│   ├── sender.cpp
-│   ├── receiver.cpp
-│   └── shm_sem.h
 ├── ipc-shared-memory
 │   ├── CMakeLists.txt
 │   ├── sender.cpp
 │   └── receiver.cpp
+├── ipc-shared-memory-posix
+│   ├── CMakeLists.txt
+│   ├── sender.cpp
+│   └── receiver.cpp
+├── ipc-shared-memory-semaphore
+│   ├── CMakeLists.txt
+│   ├── sender.cpp
+│   ├── receiver.cpp
+│   └── shm_sem.h
 ├── ipc-socket
 │   ├── CMakeLists.txt
 │   ├── receiver.cpp
@@ -48,10 +56,12 @@ This project demonstrates various types of inter-process communication (IPC) mec
 2. **File-Based IPC** (`ipc-files/`): Uses files as a medium to exchange data between processes.
 3. **Memory-Mapped Files** (`ipc-memory-map/`): Maps a file into memory for efficient shared access.
 4. **Message Queues** (`ipc-message/`): Uses System V message queues for structured message passing.
-5. **Pipes** (`ipc-pipe/`): Uses anonymous pipes for communication between parent and child processes.
-6. **Shared Memory with Semaphores** (`ipc-semaphore-shared-memory/`): Uses shared memory with semaphores to synchronize access.
-7. **Shared Memory** (`ipc-shared-memory/`): Uses shared memory segments for fast inter-process communication.
-8. **Sockets** (`ipc-socket/`): Uses UNIX domain sockets for bi-directional communication between processes.
+5. **Message Queues POSIX** (`ipc-message-posix/`): Uses POSIX message queues for structured message passing.
+6. **Pipes** (`ipc-pipe/`): Uses anonymous pipes for communication between parent and child processes.
+8. **Shared Memory** (`ipc-shared-memory/`): Uses System V shared memory for inter-process communication.
+9. **Shared Memory POSIX** (`ipc-shared-memory-posix/`): Uses POSIX shared memory and semaphores for inter-process communication.
+10. **Shared Memory with Semaphores** (`ipc-semaphore-shared-memory/`): Uses shared memory with semaphores to synchronize access.
+11. **Sockets** (`ipc-socket/`): Uses UNIX domain sockets for bi-directional communication between processes.
 
 ## Prerequisites
 
@@ -93,4 +103,3 @@ find . -type d -name build | xargs rm -rf
 
 - Some IPC mechanisms require special permissions (e.g., shared memory and semaphores).
 - UNIX domain sockets and named pipes create files that should be cleaned up after execution.
-
